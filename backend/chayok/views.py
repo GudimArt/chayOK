@@ -1,9 +1,9 @@
 from rest_framework.views import APIView
 from rest_framework import generics
 from rest_framework.response import Response
-from django.shortcuts import get_object_or_404
+from django.contrib.auth import authenticate
 
-from .models import Tea, TeaImages
+from .models import Tea
 from  .serializers import TeaSerializer
 
 class TeaList(generics.ListCreateAPIView):

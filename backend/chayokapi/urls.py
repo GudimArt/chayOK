@@ -14,12 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from chayok.apiviews import TeaList, TeaDetail
+from django.urls import path, include
+from chayok.views import TeaList, TeaDetail
 
 urlpatterns = [
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path("teas/", TeaList.as_view(), name="polls_list"),
     path("teas/<int:pk>/", TeaDetail.as_view(), name="polls_detail"),
-    path("users/", UserCreate.as_view(), name="user_create"),
 ]
